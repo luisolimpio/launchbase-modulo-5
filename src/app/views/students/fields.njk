@@ -1,0 +1,148 @@
+<div class="item">
+    <div>Avatar URL</div>
+    <div>
+        <input 
+            type="url"
+            name="avatar_url"
+            placeholder="http://"
+            value="{{ student.avatar_url }}"
+        >
+    </div>
+</div>
+
+<div class="item">
+    <div>Estudante</div>
+    <div>
+        <input 
+            type="text"
+            name="name"
+            placeholder="Nome do estudante"
+            value="{{ student.name }}"
+        >
+    </div>
+</div>
+
+<div class="item">
+    <div>E-mail</div>
+    <div>
+        <input 
+            type="email"
+            name="email"
+            value="{{ student.email }}"
+        >
+    </div>
+</div>
+
+<div class="item">
+    <div>Data de nascimento</div>
+    <div>
+        <input 
+            type="date"
+            name="birth"
+            value="{{ student.birth }}"
+        >
+    </div>
+</div>
+
+
+<div class="item">
+    <div>Ano escolar</div>
+    <div>
+        <select name="grade">
+            <option 
+                value="5EF"
+                {% if student.grade == "5EF" %}
+                    selected
+                {% endif %}
+            >
+                5º Ano Fundamental
+            </option>
+            <option 
+                value="6EF"
+                {% if student.grade == "6EF" %}
+                    selected
+                {% endif %}
+            >
+                6º Ano Fundamental
+            </option>
+            <option 
+                value="7EF"
+                {% if student.grade == "7EF" %}
+                    selected
+                {% endif %}
+            >
+                7º Ano Fundamental
+            </option>
+            <option 
+                value="8EF"
+                {% if student.grade == "8EF" %}
+                    selected
+                {% endif %}
+            >
+                8º Ano Fundamental
+            </option>
+            <option 
+                value="9EF"
+                {% if student.grade == "9EF" %}
+                    selected
+                {% endif %}
+            >
+                9º Ano Fundamental
+            </option>
+            <option 
+                value="1EM"
+                {% if student.grade == "1EM" %}
+                    selected
+                {% endif %}
+            >
+                1º Ano Médio
+            </option>
+            <option 
+                value="2EM"
+                {% if student.grade == "2EM" %}
+                    selected
+                {% endif %}
+            >
+                2º Ano Médio
+            </option>
+            <option
+                value="3EM"
+                {% if student.grade == "3EM" %}
+                    selected
+                {% endif %}
+            >
+                3º Ano Médio
+            </option>
+        </select>
+    </div>
+</div>
+
+<div class="item">
+    <div>Carga horária semanal (h)</div>
+    <div>
+        <input 
+            type="number"
+            name="weeklyWorkload"
+            value="{{ student.weeklyWorkload }}"
+        >
+    </div>
+</div>
+
+<div class="item">
+    <div>Professor:</div>
+    <div>
+        <select name="teacher">
+            {% for teacher in teacherOptions %}
+            <option 
+                value="{{teacher.id}}"
+                {% if teacher.id == student.teacher_id %}
+                    selected
+                {% endif %}
+            >
+                {{teacher.name}}
+            {% endfor %}
+        </select>
+    </div>
+</div>
+
+<button form="form-save" id="save-button" type="submit">Salvar</button>
