@@ -6,3 +6,4 @@
  - HTML
  - CSS
  - Express Framework (Framework to handle the server in the backend)
+ - PostgreSQL (Database)
